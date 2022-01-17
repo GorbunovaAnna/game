@@ -1,0 +1,103 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    counter-reset: killer;
+    background-image: url(./img/Games_Duck_Hunt_Nintendo_Dendy_Nes_025749_9.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 bottom;
+    min-height: 100%;
+    position: relative;
+    cursor: url("./img/curs34.png"), crosshair;
+    overflow: hidden;
+}
+
+.duck{
+    width: 62px;
+    height: 56px;
+    position: relative;
+    overflow: hidden;
+    left: -80px;
+    top: 450px;
+}
+
+input{
+    position: absolute;
+    left: -50px;
+}
+
+label{
+    display: inline-block;
+    width: 56px;
+    height: 62px;
+    background-image: url(./img/duck_hunt_bird_big2.gif);
+    background-repeat: no-repeat;
+    cursor: url("./img/curs34.png"), crosshair;
+}
+
+.duck input[type="checkbox"]:checked{
+    counter-increment: killer;
+}
+
+input[type="checkbox"]:checked + label{
+    /* display: none; */
+    /* visibility: hidden; */
+    opacity: 0;
+}
+
+.duck1{
+    animation: fly1 5s .5s;
+}
+.duck2{
+    animation: fly1 15s .3s;
+}
+.duck3{
+    animation: fly1 9s .5s;
+}
+
+.summa{
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+    transform: translateX(-50%);
+}
+
+.summa::after{
+    content: counter(killer);
+}
+
+@keyframes fly1{
+    0%{
+        left: 5%;
+        top: 400px;
+    }
+    25%{
+        left: 25%;
+        top: 500px;
+    }
+    50%{left: 50%;
+        top: 120px;
+    }
+    75%{left: 75%;
+        top: 600px;
+    }
+    100%{
+        left: 110%;
+        top: 250%;
+    }
+}
